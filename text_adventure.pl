@@ -46,3 +46,32 @@ while(!$go_on){
         next;
     }
 }
+$go_on = 0;
+
+say "Not far below that mountain in wich you dwell, a simple village full of peasants stands.";
+say "The question is... will you pillage it or not? (y/n)";
+
+my $infamy = 0;
+my $gold = 0;
+
+while(!$go_on){
+    my $responce = lc <STDIN>;
+    chomp $responce;
+
+    if($responce eq "y"){
+        say "You swoop down on the village, utterly destroying their pathetic defenses.";
+        say "+10 gold";
+        say "+1 infamy";
+        $gold += 10;
+        $infamy++;
+        last;
+    }
+    elsif($responce eq "n"){
+        say "You decide to spare the peasants, they probably don't have much gold anyway.";
+        last;
+    }
+    else{
+        say "Invalid Input, make sure you spelt your command correctly.";
+        next;
+    }
+}
